@@ -25,7 +25,7 @@ class AttractionsController < ApplicationController
   end
   def update
     if @attraction.update(attraction_params)
-      format.html {redirect_to @attraction, notice: "Attraction was successfully updated."}
+      redirect_to @attraction, notice: "Attraction was successfully updated."
     else
       format.html {render :edit}
     end
