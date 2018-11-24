@@ -13,7 +13,7 @@ class AttractionsController < ApplicationController
     @attraction = Attraction.new
   end
   def create
-    @Attraction = Attraction.create(attraction_params)
+    @attraction = Attraction.create(attraction_params)
     if @attraction.save
       redirect_to @attraction, notice: "Attraction was successfully created."
     else
