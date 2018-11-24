@@ -24,12 +24,10 @@ class AttractionsController < ApplicationController
   def edit
   end
   def update
-    respond_to do |format|
-      if @attraction.update(attraction_params)
-        format.html {redirect_to @attraction, notice: "Attraction was successfully updated."}
-      else
-        format.html {render :edit}
-      end
+    if @attraction.update(attraction_params)
+      format.html {redirect_to @attraction, notice: "Attraction was successfully updated."}
+    else
+      format.html {render :edit}
     end
   end
 
