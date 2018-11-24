@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :user, only: [:show, :edit, :update, :destroy]
 
   def show
     @message = params[:message] if params[:message]
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
+  def user
     @user = User.find(params[:id])
   end
 
