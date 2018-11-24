@@ -33,8 +33,7 @@ class AttractionsController < ApplicationController
 
   def destroy
     @attraction.destroy
-    respond_to do |format|
-      format.html {redirect_to attractions_url, notice: "Attraction was successfully destroyed."}
+    redirect_to attractions_url, notice: "Attraction was successfully destroyed."
     end
   end
 
