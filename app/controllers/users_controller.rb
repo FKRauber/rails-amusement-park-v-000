@@ -22,12 +22,10 @@ class UsersController < ApplicationController
   def edit
   end
   def update
-    respond_to do |format|
-      if @user = User.update(user_params)
-        format.html { redirect_to @user, notice: "User was successfully updated." }
-      else
-        format.html { render :edit }
-      end
+    if @user = User.update(user_params)
+      redirect_to @user, notice: "User was successfully updated."
+    else
+      render :edit
     end
   end
 
