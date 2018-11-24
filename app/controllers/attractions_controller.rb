@@ -1,5 +1,5 @@
 class AttractionsController < ApplicationController
-  before_action :set_attraction, only: [:show, :edit, :update, :destroy]
+  before_action :attraction, except: [:new, :create, :index]
 
   def index
     @attractions = Attraction.all
@@ -13,13 +13,12 @@ class AttractionsController < ApplicationController
     @attraction = Attraction.new
   end
   def create
-    @Attraction = Attraction.new(attraction_params)
-    respond_to do |format|
-      if @attraction.save
-        format.html {redirect_to @attraction, notice: "Attraction was successfully created."}
-      else
-        format.html {render :new}
-      end
+    @Attraction = Attraction.create(attraction_params)
+    if @attraction.save
+      redirect_to @attraction, notice: "Attraction was successfully created."
+    else
+      render :new
+    end
   end
 
   def edit
@@ -43,7 +42,7 @@ class AttractionsController < ApplicationController
 
   private
 
-  def set_attraction
+  def attraction
     @attraction = Attraction.find(params[:id])
   end
 
