@@ -34,7 +34,6 @@ class AttractionsController < ApplicationController
   def destroy
     @attraction.destroy
     redirect_to attractions_url, notice: "Attraction was successfully destroyed."
-    end
   end
 
   private
@@ -46,4 +45,3 @@ class AttractionsController < ApplicationController
   def attraction_params
     params.require(:attraction).permit(:name, :tickets, :min_height, :happiness_rating, :nausea_rating)
   end
-end
