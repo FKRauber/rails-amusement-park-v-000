@@ -31,7 +31,7 @@ class Ride < ActiveRecord::Base
     new_nausea = self.user.nausea + self. attraction.nausea_rating
     new_tickets = self.user.tickets - self.attraction.tickets
     self.user.update(happiness: new_happiness, nausea: new_nausea, tickets: new_tickets)
-    "Thanks for riding the #{self.attraction.name}"
+    "Thanks for riding the #{self.attraction.name}!"
   end
   def wrong_tickets
     "You do not have enough tickets to ride the #{attraction.name}."
